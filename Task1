@@ -1,0 +1,29 @@
+/* The below code explains about the data processing and preprocessing methods */
+import pandas as pd
+
+# Load data from a CSV file
+data = pd.read_csv("data.csv")
+
+# Get basic information about the data
+print(data.head())  # View the first few rows
+print(data.info())  # Print information about data types and missing values
+
+# Handle missing values
+data.fillna(0, inplace=True)  # Replace missing values with 0 (you might want a different strategy)
+
+# Data cleaning and transformation (example: create a new column)
+data["age_group"] = pd.cut(data["age"], bins=[0, 20, 40, 60, 100])  # Create age groups
+
+# Filtering data
+filtered_data = data[data["age"] > 30]  # Select data where age is greater than 30
+
+# Descriptive statistics
+print(data["income"].describe())  # Get summary statistics on the income column
+
+# Grouping data
+average_income_by_age_group = data.groupby("age_group")["income"].mean()  # Calculate average income by age group
+
+# Export data to a new CSV file
+average_income_by_age_group.to_csv("average_income.csv")
+
+print("Data processing complete!")
