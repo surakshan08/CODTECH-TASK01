@@ -10,7 +10,7 @@
 
 ** OVERVIEW OF THE PROJECT **
 
-     DATA PROCESSING     
+PROJECT-DATA PROCESSING     
      
 before applying AI algorithms, data often needs to be preprocessed to
 ensure its quality and suitability for analysis. This task involves cleaning,
